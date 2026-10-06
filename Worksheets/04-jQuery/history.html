@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!-- Diz ao navegador que este documento segue as regras do HTML5. Tem de ser sempre a primeira linha do ficheiro. -->
+
+<html lang="pt-PT">
+<!-- Elemento raiz da página. lang="pt-PT" indica que o conteúdo está em português de Portugal -->
+
+<head>
+	<meta charset="UTF-8">
+	<!-- Define a codificação de caracteres como UTF-8, para os acentos aparecerem corretamente -->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Meta tag responsiva (igual à do index.html): permite que o layout se adapte à largura real do ecrã -->
+
+	<title>HOME SWEET HOME</title>
+	<!-- Texto do separador do navegador. Mantido igual ao do index.html, porque é a "mesma aplicação", só que noutra página -->
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+		  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<!-- Carrega o CSS do Bootstrap — exatamente a mesma linha do index.html. Repete-se aqui porque cada página HTML
+	     é independente e precisa de carregar as suas próprias ligações a ficheiros externos.
+	     (Nota: este ficheiro não tem o <script> do Font Awesome, porque a página History não usa nenhum ícone) -->
+</head>
+
+<body>
+
+	<!-- ===================== NAVBAR ===================== -->
+	<!-- Exatamente a mesma navbar do index.html, copiada tal e qual — só muda qual dos dois links tem a classe "active" -->
+
+	<nav class="navbar navbar-dark bg-dark">
+		<div class="container-fluid">
+			<span class="navbar-brand mb-0 h1">Home Sweet Home</span>
+			<ul class="navbar-nav flex-row">
+				<li class="nav-item me-3">
+					<a class="nav-link" href="index.html">Dashboard</a>
+					<!-- Aqui NÃO tem "active", porque não estamos nesta página -->
+				</li>
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="history.html">History</a>
+					<!-- Aqui TEM "active" e "aria-current", porque estamos precisamente na página history.html -->
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- ===================== TABELA DE HISTÓRICO (alínea c) ===================== -->
+
+	<div class="container mt-4">
+	<!-- Mesmo contentor do index.html: centra a tabela e dá-lhe um espaço no topo -->
+
+		<table class="table table-striped">
+		<!-- "table" é a classe base obrigatória do Bootstrap (slide 13) — sem ela, a tabela aparece sem qualquer estilo.
+		     "table-striped" pinta as linhas alternadamente (uma com fundo branco, a seguinte com fundo cinzento claro),
+		     o efeito "às riscas" que se vê na Figura 2 do enunciado -->
+
+			<thead>
+			<!-- <thead> agrupa a linha do cabeçalho da tabela (os nomes das colunas) -->
+
+				<tr>
+				<!-- <tr> = table row (uma linha da tabela) -->
+
+					<th scope="col">Category</th>
+					<!-- <th> = table header (célula de cabeçalho, aparece a negrito por predefinição do navegador).
+					     scope="col" diz explicitamente que este cabeçalho se aplica a toda a coluna por baixo dele
+					     (boa prática de acessibilidade, usada no exemplo do slide 13) -->
+
+					<th scope="col">State</th>
+					<th scope="col">Last Changed</th>
+					<!-- As outras duas colunas do cabeçalho, seguindo exatamente a mesma lógica -->
+
+				</tr>
+			</thead>
+			<tbody>
+			<!-- <tbody> agrupa todas as linhas de dados (o "corpo" da tabela, separado do cabeçalho) -->
+
+				<tr>
+				<!-- Primeira linha de dados -->
+
+					<td>Kitchen lights</td>
+					<!-- <td> = table data (célula normal, sem negrito). Corresponde à coluna "Category" -->
+
+					<td>Off</td>
+					<!-- Corresponde à coluna "State" -->
+
+					<td>23:40 2018-09-16</td>
+					<!-- Corresponde à coluna "Last Changed" -->
+
+				</tr>
+				<tr>
+					<td>Kitchen lights</td>
+					<td>On</td>
+					<td>20:30 2018-09-16</td>
+				</tr>
+				<tr>
+					<td>Weather</td>
+					<td>Sunset</td>
+					<td>20:35 2018-09-16</td>
+					<!-- No ficheiro original, esta linha e a seguinte (Bell/Ring) estavam com as células <td> soltas,
+					     sem estarem dentro de um <tr> — por isso a tabela original não era HTML válido.
+					     Aqui cada linha de dados tem sempre o seu próprio <tr>, tal como as anteriores -->
+				</tr>
+				<tr>
+					<td>Bell</td>
+					<td>Ring</td>
+					<td>19:30 2018-09-16</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+	<!-- Mesmo JS do Bootstrap do index.html, pela mesma razão: mantém-se por consistência, mesmo sem componentes interativos aqui -->
+
+</body>
+
+</html>

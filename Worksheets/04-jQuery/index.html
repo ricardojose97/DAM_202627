@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!-- Diz ao navegador que este documento segue as regras do HTML5. Tem de ser sempre a primeira linha do ficheiro. -->
+
+<html lang="pt-PT">
+<!-- Elemento raiz de toda a página. lang="pt-PT" indica que o conteúdo está em português de Portugal (ajuda leitores de ecrã e motores de busca a interpretar o texto) -->
+
+<head>
+	<!-- Cabeçalho da página: nada aqui é visível diretamente; são metadados e ligações a ficheiros externos -->
+
+	<meta charset="UTF-8">
+	<!-- Define a codificação de caracteres como UTF-8, para que acentos e caracteres especiais (á, ã, ç...) apareçam corretamente -->
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- "Meta tag responsiva" (slide 3 da teórica): diz ao navegador para usar a largura real do ecrã do dispositivo, sem zoom inicial.
+	     Sem esta linha, o comportamento "mobile first" do Bootstrap não funciona corretamente em telemóveis -->
+
+	<title>HOME SWEET HOME</title>
+	<!-- Texto que aparece no separador (tab) do navegador -->
+
+	<script src="https://kit.fontawesome.com/0288cacb26.js" crossorigin="anonymous"></script>
+	<!-- Carrega a biblioteca Font Awesome, que fornece os ícones usados mais abaixo (termómetro, lâmpada, olho, relógio, calendário, sol) -->
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+		  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	<!-- Carrega o CSS do Bootstrap a partir da CDN (slide 3). É esta linha que dá acesso a TODAS as classes usadas neste ficheiro
+	     (navbar, container, row, col-md-4, card, float-end, text-muted, text-success, text-danger, etc.). O atributo "integrity"
+	     é um código de segurança que confirma que o ficheiro descarregado não foi alterado por ninguém pelo caminho -->
+</head>
+
+<body>
+	<!-- Corpo da página: tudo o que aparece visível ao utilizador vem a partir daqui -->
+
+	<!-- ===================== NAVBAR (alínea b: navegação entre Dashboard e History) ===================== -->
+
+	<nav class="navbar navbar-dark bg-dark">
+	<!-- Cria a barra de navegação (slide 29). "bg-dark" dá o fundo escuro; "navbar-dark" ajusta a cor do texto/links
+	     para ficarem legíveis (brancos) sobre esse fundo escuro -->
+
+		<div class="container-fluid">
+		<!-- Contentor "fluido" (slide 6): ao contrário do .container normal, ocupa sempre 100% da largura do ecrã.
+		     É a opção habitual dentro de uma navbar, para a barra se esticar de ponta a ponta -->
+
+			<span class="navbar-brand mb-0 h1">Home Sweet Home</span>
+			<!-- "navbar-brand" é a classe própria para o nome/logótipo do site (slide 29).
+			     "mb-0" remove a margem inferior do texto; "h1" aumenta o tamanho da letra, para se destacar -->
+
+			<ul class="navbar-nav flex-row">
+			<!-- Lista que vai conter os dois links de navegação. "navbar-nav" é a classe de lista específica da navbar;
+			     "flex-row" obriga os <li> a ficarem lado a lado (em linha), em vez de um por baixo do outro -->
+
+				<li class="nav-item me-3">
+				<!-- Um item da lista (um link). "me-3" acrescenta uma margem à direita, para dar espaço até ao link seguinte -->
+
+					<a class="nav-link active" aria-current="page" href="index.html">Dashboard</a>
+					<!-- Link para esta própria página (index.html).
+					     "nav-link" estiliza o link como item de menu.
+					     "active" é só uma marca visual que diz "estás aqui" — por isso só aparece nesta página.
+					     "aria-current="page"" é o equivalente para leitores de ecrã: informa que esta é a página atual -->
+
+				</li>
+				<li class="nav-item">
+				<!-- Segundo item da lista — sem a classe "active", porque não é a página onde estamos -->
+
+					<a class="nav-link" href="history.html">History</a>
+					<!-- Link simples para a página history.html -->
+
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- ===================== DASHBOARD (alínea a: Cards) ===================== -->
+
+	<div class="container mt-4">
+	<!-- Contentor normal (slide 6): centra o conteúdo e limita a sua largura máxima consoante o ecrã.
+	     "mt-4" acrescenta uma margem no topo, para os cards não ficarem colados à navbar -->
+
+		<div class="row">
+		<!-- Início da grelha (Grid System, slide 8): a "row" é o invólucro (wrapper) obrigatório que vai conter as colunas -->
+
+			<!-- ---- Coluna 1: KITCHEN ---- -->
+
+			<div class="col-md-4 mb-3">
+			<!-- Esta <div> é uma coluna da grelha. "col-md-4" (slide 9) diz que, a partir do breakpoint "médio" (ecrãs ≥768px),
+			     esta coluna ocupa 4 das 12 partes da grelha — ou seja, 1/3 da largura, para caberem os 3 cards lado a lado.
+			     Em ecrãs mais pequenos (telemóvel), como não foi definido "col-12", a coluna ocupa a largura toda e os
+			     3 cards ficam empilhados um por cima do outro (comportamento "mobile first" do Bootstrap).
+			     "mb-3" dá um espaço por baixo do card, para não colar ao card da linha seguinte em ecrãs pequenos -->
+
+				<div class="card">
+				<!-- Cria a caixa do Card (slide 19): o contorno arredondado e a sombra ligeira que se veem na Figura 1 -->
+
+					<div class="card-header text-center">
+					<!-- Cabeçalho do card (slide 20/23). "text-center" centra o texto horizontalmente -->
+
+						<strong>KITCHEN</strong>
+						<!-- <strong> deixa o texto a negrito, para destacar o nome da divisão da casa -->
+
+					</div>
+					<div class="card-body">
+					<!-- Corpo do card (slide 19), onde fica toda a informação (temperatura, luzes, janelas) -->
+
+						<p>
+						<!-- Cada linha de informação é um parágrafo <p> separado -->
+
+							<strong><i class="fa-solid fa-temperature-three-quarters text-success"></i> Temperature</strong>
+							<!-- O <strong> envolve o ícone + o nome do campo ("Temperature"), para ficar a negrito.
+							     "text-success" (acrescentado por ti) pinta o ícone de verde. Corrigi também o espaço que faltava
+							     entre </i> e "Temperature", para o ícone não ficar colado ao texto -->
+
+							<span id="kitchenTemp" class="float-end">21.6 °C</span><br>
+							<!-- NOVO (ponto 2): o id="kitchenTemp" permite ao JavaScript encontrar este elemento
+							     (com document.getElementById) para lhe mudar o valor a cada 5 segundos.
+							     O VALOR fica fora do <strong>, por isso mantém-se em peso normal.
+							     "float-end" empurra o valor para a extremidade direita do parágrafo.
+							     <br> força uma quebra de linha, para o texto seguinte passar para a linha de baixo -->
+
+							<small class="text-muted">5 minutes ago</small>
+						<!-- <small> torna o texto mais pequeno; "text-muted" pinta-o de cinzento, para ficar mais discreto -->
+
+						</p>
+						<p>
+							<strong><i id="kitchenLightsIcon" class="fa-regular fa-lightbulb text-muted"></i> Lights</strong>
+							<!-- NOVO (ponto 2): id="kitchenLightsIcon" para o JavaScript poder trocar o ícone (fa-regular <-> fa-solid)
+							     e a cor (text-muted <-> text-warning) quando o botão é clicado. Começa "text-muted" (cinzento)
+							     porque a luz começa desligada -->
+
+							<button id="kitchenLightsBtn" type="button" value="off" class="btn btn-sm p-0 border-0 bg-transparent float-end text-danger">Off</button><br>
+							<!-- NOVO (ponto 2): o antigo <span> passou a ser um <button> (o "toggle button" pedido na ficha).
+							     id="kitchenLightsBtn" -> nome com significado, para o JS o encontrar.
+							     value="off" -> estado atual; o JS troca-o entre "off" e "on" a cada clique.
+							     btn btn-sm p-0 border-0 bg-transparent -> classes Bootstrap que tiram o aspeto de botão
+							     (sem borda, sem fundo, sem espaçamento), para continuar a parecer texto simples.
+							     float-end text-danger -> continua alinhado à direita e a vermelho (estado "Off") -->
+
+							<small class="text-muted">10 minutes ago</small>
+						</p>
+						<p>
+							<strong><i class="fa-solid fa-eye"></i> West Window</strong>
+							<!-- Ícone de "olho" usado (no ficheiro original) para representar o estado da janela -->
+
+							<span class="float-end text-success">Open</span><br>
+							<!-- "text-success" é a classe de cor do Bootstrap para verde. As janelas NÃO são toggle buttons
+							     (a ficha só pede luzes e música), por isso continuam a ser texto fixo -->
+
+							<small class="text-muted">15 minutes ago</small>
+						</p>
+						<p class="mb-0">
+						<!-- Último parágrafo do card: "mb-0" remove a margem inferior, para não sobrar espaço vazio no fundo do card -->
+
+							<strong><i class="fa-solid fa-eye"></i> North Window</strong>
+							<span class="float-end text-success">Open</span><br>
+							<small class="text-muted">15 minutes ago</small>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- ---- Coluna 2: LIVING ROOM — estrutura idêntica à coluna 1, muda apenas o conteúdo ---- -->
+
+			<div class="col-md-4 mb-3">
+			<!-- Segunda coluna: mesmas classes col-md-4 e mb-3 explicadas acima -->
+
+				<div class="card">
+					<div class="card-header text-center">
+						<strong>LIVING ROOM</strong>
+					</div>
+					<div class="card-body">
+						<p>
+							<strong><i class="fa-solid fa-temperature-three-quarters text-danger"></i> Temperature</strong>
+							<span id="livingRoomTemp" class="float-end">22.6 °C</span><br>
+							<!-- NOVO: id="livingRoomTemp", pelo mesmo motivo do "kitchenTemp" -->
+
+							<small class="text-muted">5 minutes ago</small>
+						</p>
+						<p>
+							<strong><i id="ceilingLightsIcon" class="fa-regular fa-lightbulb text-muted"></i> Ceiling Lights</strong>
+							<button id="ceilingLightsBtn" type="button" value="off" class="btn btn-sm p-0 border-0 bg-transparent float-end text-danger">Off</button><br>
+							<!-- NOVO: toggle button das luzes do teto (começa "off"), igual ao da Kitchen -->
+
+							<small class="text-muted">7 minutes ago</small>
+						</p>
+						<p>
+							<strong><i id="ambientLightsIcon" class="fa-solid fa-eye text-warning"></i> Ambient Lights</strong>
+							<button id="ambientLightsBtn" type="button" value="on" class="btn btn-sm p-0 border-0 bg-transparent float-end text-success">On</button><br>
+							<!-- NOVO: toggle button das luzes ambiente. Começa "on" (value="on", verde, ícone preenchido e amarelo) -->
+
+							<small class="text-muted">7 minutes ago</small>
+						</p>
+						<p class="mb-0">
+							<strong><i id="ambientMusicIcon" class="fa-solid fa-eye text-primary"></i> Ambient Music</strong>
+							<button id="ambientMusicBtn" type="button" value="on" class="btn btn-sm p-0 border-0 bg-transparent float-end text-success">On</button><br>
+							<!-- NOVO: toggle button da música ambiente. Começa "on" -->
+
+							<small class="text-muted">17 minutes ago</small>
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- ---- Coluna 3: CLOCK — mesma estrutura, só com 3 linhas em vez de 4 ---- -->
+
+			<div class="col-md-4 mb-3">
+				<div class="card">
+					<div class="card-header text-center">
+						<strong>CLOCK</strong>
+					</div>
+					<div class="card-body">
+						<p>
+							<strong><i class="fa-regular fa-clock text-primary"></i> Time</strong>
+							<span id="clockTime" class="float-end">22:30</span>
+							<!-- NOVO: id="clockTime" -> o JS vai escrever aqui a hora atual (HH:MM:SS), a cada segundo.
+							     Não há <br> nem <small>, porque no ficheiro original o Clock não tem "X minutes ago".
+							     Também não há "text-success"/"text-danger", porque a hora não é um estado on/off -->
+						</p>
+						<p>
+							<strong><i class="fa-regular fa-calendar"></i> Date</strong>
+							<span id="clockDate" class="float-end">2018-09-18</span>
+							<!-- NOVO: id="clockDate" -> o JS escreve aqui a data de hoje, uma vez, quando a página carrega -->
+						</p>
+						<p class="mb-0">
+							<strong><i class="fa-regular fa-sun text-warning"></i> Sunrise / Sunset</strong>
+							<span class="float-end">above horizon</span>
+						</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+	<!-- Carrega o JavaScript do Bootstrap. É necessário para componentes interativos (dropdowns, modals, carousel);
+	     esta página em concreto não usa nenhum, mas mantém-se por hábito/consistência com o resto do site.
+	     Fica no FIM do <body> (e não no <head>) para o HTML e o CSS carregarem primeiro e a página aparecer mais rápido -->
+
+	<script src="js/index.js"></script>
+	<!-- O nosso próprio JavaScript (ponto 1 e 2 da ficha 3). Tem de vir DEPOIS de todos os elementos acima,
+	     porque o código procura-os por id assim que corre (slide 6 da teórica: "antes de fechar o </body>") -->
+</body>
+
+</html>
